@@ -34,7 +34,7 @@ public class UserController {
         var toRet = userService.getUserMetaData(userName);
         log.info("Request on api /user/{userName}/meta complete: {}", userName);
 
-        if (toRet == null)
+        if (toRet == null) // null comes back if there are any issues
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
 
         // doing it this way prevents converting the obj to json unless it's actually going to be logged

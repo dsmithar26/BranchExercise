@@ -18,7 +18,7 @@ public class UserService {
     }
 
     // This will cache permanently in memory. In prod we'd used prefer to use something like
-    // redis which provided TTL functionality.
+    // redis which provides TTL functionality.
     @Cacheable("UserMeta")
     public UserMeta getUserMetaData (String userName) {
         log.debug("Collecting user data");
@@ -26,6 +26,6 @@ public class UserService {
         var ghRData = client.GetRepoData(userName);
 
         log.debug("Mapping User data");
-        return UserMapper.mapGHtoMeta(ghMData, ghRData);
+        return UserMapper.mapDTOtoModel(ghMData, ghRData);
     }
 }
