@@ -8,7 +8,7 @@ import java.util.List;
 
 @Component
 public class UserMapper {
-    public static UserMeta mapGHtoMeta(UserData ud, List<RepoData> repoList) {
+    public static UserMeta mapDTOtoModel(UserData ud, List<RepoData> repoList) {
 
         if (ud == null)
             return null;

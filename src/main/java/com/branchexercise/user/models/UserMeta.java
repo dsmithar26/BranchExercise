@@ -42,6 +42,7 @@ public class UserMeta {
     @JsonProperty("user_name")
     public String userName;
 
+    // Make this static so it only has to be built once
     private static final ObjectMapper jsonMapper = new ObjectMapper();
 
     @Override

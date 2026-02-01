@@ -46,16 +46,13 @@ public class GitHubClient implements UserDataClient {
                         throw new GitHubException();
                     })
                     .body(UserData.class);
-        }
         // custom status handlers already logged, just return null
-        catch (GitHubException e) {
+        } catch (GitHubException e) {
             return null;
-        }
-        catch (RestClientResponseException e) {
+        } catch (RestClientResponseException e) {
             log.error("Generic RestClient exception collecting user data", e);
             return null;
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             log.error("Unexpected error occurred collecting user data", e);
             return null;
         }
@@ -76,16 +73,13 @@ public class GitHubClient implements UserDataClient {
                         throw new GitHubException();
                     })
                     .body(new ParameterizedTypeReference<>() {});
-        }
         // custom status handlers already logged, just return null
-            catch (GitHubException e) {
+        } catch (GitHubException e) {
             return null;
-        }
-            catch (RestClientResponseException e) {
+        } catch (RestClientResponseException e) {
             log.error("Generic RestClient exception collecting repo data", e);
             return null;
-        }
-            catch (Exception e) {
+        } catch (Exception e) {
             log.error("Unexpected error occurred collecting repo data", e);
             return null;
         }
